@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <html dir="rtl">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>عربة تسوقك</title>
+    <style>
+   
+        .amiri-regular {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: normal;
+          }
+          
+          .amiri-bold {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: normal;
+          }
+          
+          .amiri-regular-italic {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: italic;
+          }
+          
+          .amiri-bold-italic {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: italic;
+          }
+
+
+        body{
+            margin: 0;
+            background: #F1EFEC;
+            font-family: "Amiri";
+            font-weight: 400;
+            color: #123458;
+        }
+
+        .header{
+            /*width: 100%;*/
+            margin: 5px 0 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        
+        .back{
+            font-family: sans-serif;
+            background: #09d8ac;
+            width: 3cm;
+            border-radius: 0px 10px 10px 0px;
+            height: 1cm;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 9px;
+            position: relative;
+            a{
+             text-decoration: none;
+             font-size: 350%;
+            }
+        }
+
+        h1{
+            margin: 0px 5px 0px 0px;
+            color: #123458;
+            font-size: 20px;
+        }
+
+        .button{
+            background-color: red;
+            color: #123458;
+            border-radius: 25px;
+            border-color: #123458;
+            border-style: solid;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        li {
+            background: #D4C9BE;
+            width: 40%;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            padding: 0px 0px 5px 0px;
+            img{
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px 10px 0px 0px;
+            }
+            p{
+                margin-right: 5px;
+                width: 100%;
+            }
+        }
+
+        .form{
+            display: inline;
+            position: absolute;
+            button{
+                font-size: 12px;
+                background: none;
+                border-style: none;
+                width: 0;
+            }
+        }
+        p{
+            margin: 0 5px 0 0;
+        }
+
+        .total{
+            font-size: 45px;
+        }
+        
+        .p{
+            font-size: 55px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+        {% if cart %}
+        
+        <form action="{% url 'clear_cart' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="button">مسح الكل 🗑️</button>
+        </form>
+        <h1>عربة تسوقك</h1>
+        
+        <div class="back">
+            <a href="{% url 'product_list' %}">⬅</a>
+        </div>
+    </div>
+
+        <ul>{% for key, item in cart.items %}
+            <li>
+                <!-- زر الحذف -->
+                <form class="form" action="{% url 'remove_from_cart' key %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">❌</button>
+                </form>
+                <img src="{{ item.image }}" alt="{{ item.name }}" width="80">
+                <p>
+                    <strong>{{ item.name }}</strong> 
+                </p>
+                <p>
+                    الكمية : {{ item.quantity }} 
+                </p>
+                <p>
+                    السعر : ${{ item.price }} 
+                </p>
+        
+            </li>
+        {% endfor %}
+        
+        </ul>
+        <p class="total">اجمالي المجموع : ${{ total_price }}</p>
+    {% else %}
+    <p class="p">عربة تسوقك فارغة .</p>
+    <header>
+        <div class="back">
+            <a href="{% url 'product_list' %}">⬅</a>
+        </div>
+    </header>
+    {% endif %}
+</body>
+</html>

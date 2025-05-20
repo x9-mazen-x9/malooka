@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>{{ product.name }}</title>
+    <style>
+
+
+        .amiri-regular {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: normal;
+          }
+          
+          .amiri-bold {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: normal;
+          }
+          
+          .amiri-regular-italic {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: italic;
+          }
+          
+          .amiri-bold-italic {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: italic;
+          }
+
+
+        body{
+            margin: 0px;
+            background: #F1EFEC;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .back{
+            margin-top: 5px;
+            background: #09d8ac;
+            width: 3cm;
+            border-radius: 0px 10px 10px 0px;
+            height: 1cm;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 9px;
+            position: relative;
+            left: -1%;
+            a{
+             text-decoration: none;
+             font-size: 350%;
+            }
+        }
+
+        .name{
+            direction: rtl;
+            text-align: right;
+            width: 100%;
+            margin: 0px 5px 0px 5px;
+            h1{
+                font-size: 300%;
+                color: #123458;
+                font-family: "Amiri", serif;
+                font-weight: 400;
+                margin: 0px;
+            }
+        }
+
+        .img{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin-top: 15px;
+            border-radius: 10px;
+            margin: 15px 5px 0px 5px;
+
+        }
+
+
+        .buttons{
+            width: 100%;
+            /* background: red; */
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-evenly;
+            justify-content: space-evenly;
+        }
+
+        .g{
+            background: #123458;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .disc{
+            direction: rtl;
+            text-align: right;
+            width: 100%;
+            margin: 0px 5px 0px 5px;
+            p{
+                margin: 5px 0px;
+                font-size: 200%;
+                color: #123458;
+                font-family: "Amiri", serif;
+                font-weight: 400;
+
+            }
+        }
+
+        .price {
+            direction: rtl;
+            text-align: right;
+            width: 100%;
+            margin: 0px 5px 0px 5px;
+            p{
+                margin: 5px 0px;
+                font-size: 250%;
+                color: #123458;
+                font-family: "Amiri", serif;
+                font-weight: 400;
+
+            }
+        }
+        /* تنسيق الحقول والنموذج */
+        form {
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            width: 45%;
+        }
+
+        button[type="submit"] {
+            background-color: #054385;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 27px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            height: 80px;
+            font-family: "Amiri", serif;
+            font-weight: 400;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #123458;
+        }
+
+        /* تغيير شكل زر "اشتر الآن" */
+        .btn {
+            width: 45%;
+        }
+        #buy-now-btn {
+            padding: 10px 20px;
+            background-color: #09d8ac;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin: 10px 0px;
+            height: 80px;
+            font-family: "Amiri", serif;
+            font-weight: 400;
+        }
+
+        #buy-now-btn:hover {
+            background-color: #079d7d; /* تغيير اللون عند التمرير */
+        }
+
+  .slider-container {
+    position: relative;
+    max-width: 500px;
+    margin: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: fit-content;
+  }
+
+  .slider img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000000c0;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 25%;
+  }
+
+  .prev { left: 0px; }
+  .next { right: 0px; }
+
+  .prev:hover, .next:hover {
+    background-color: #000000cc;
+}
+
+
+  
+.counter {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background: #00000080;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="back">
+        <a href="{% url 'product_list' %}">⬅</a>
+    </div>
+    <div class="img">        
+        <div class="g">
+            <div class="slider-container">
+                <div class="slider" id="imageSlider">
+                        {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="الصورة الرئيسية">
+                    {% endif %}
+                    {% for image in images %}
+                    <img src="{{ image.image.url }}" alt="صورة إضافية">
+                    {% endfor %}
+                </div>
+                
+                <button class="prev" onclick="prevSlide()">‹</button>
+                <button class="next" onclick="nextSlide()">›</button>
+                <div class="counter" id="sliderCounter">1 / 1</div>
+            </div>
+        </div>
+                <div class="buttons">
+    <!-- زر إضافة للسلة -->
+    <form action="{% url 'add_to_cart' product.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">أضف الى العربة</button>
+    </form>
+    
+           <!-- زر اشتر الآن -->
+           <a class="btn" href="http://wa.me/201279842001?text=السلام%20عليكم%20عايز%20استفسر%20عن%20 {{ product.name }}" target="_blank" rel="noopener noreferrer">
+            <button id="buy-now-btn">اشتر الآن</button>
+        </a>
+
+        </div>
+    </div>
+    
+    <div class="name">
+        
+        <h1>{{ product.name }}</h1>
+    </div>
+    
+    <div class="disc">
+
+        <p>الوصف:<br>{{ product.description }}</p>
+    </div>
+    <div class="price">
+        <p>السعر: {{ product.price }} جنيه</p>
+    </div>
+
+<script>
+ let currentIndex = 0;
+
+  function updateSliderPosition() {
+    const slider = document.getElementById('imageSlider');
+    const images = slider.querySelectorAll('img');
+    const slideWidth = images[0].clientWidth;
+    slider.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
+
+    // تحديث العداد
+    const counter = document.getElementById('sliderCounter');
+    counter.textContent = `${images.length} / ${currentIndex + 1}`;
+  }
+
+  function nextSlide() {
+    const slider = document.getElementById('imageSlider');
+    const totalSlides = slider.querySelectorAll('img').length;
+    currentIndex = (currentIndex + 1) % totalSlides; // لو وصل لآخر صورة يرجع لأول صورة
+    updateSliderPosition();
+  }
+
+  function prevSlide() {
+    const slider = document.getElementById('imageSlider');
+    const totalSlides = slider.querySelectorAll('img').length;
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // لو أول صورة ورجع يرجع لآخر صورة
+    updateSliderPosition();
+  }
+
+  window.addEventListener('resize', updateSliderPosition);
+  window.addEventListener('load', updateSliderPosition);
+</script>
+    
+</body>
+</html>

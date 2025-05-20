@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <html dir="rtl">
+    <title>Products</title>
+    <style>
+
+        link[rel="icon"] {
+            width: 50px;
+             border-radius: 50%;
+        }
+
+        .leckerli-one-regular {
+            font-family: "Leckerli One", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .amiri-regular {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: normal;
+          }
+          
+          .amiri-bold {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: normal;
+          }
+          
+          .amiri-regular-italic {
+            font-family: "Amiri", serif;
+            font-weight: 400;
+            font-style: italic;
+          }
+          
+          .amiri-bold-italic {
+            font-family: "Amiri", serif;
+            font-weight: 700;
+            font-style: italic;
+          }
+          
+          
+        body{
+            background-color: #F1EFEC;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1%;
+            justify-content: center;
+        }
+
+
+        .search{
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            .sear{
+                width: 80%;
+                height: 95%;
+                background-color: #D4C9BE;
+                border-radius: 25px;
+                border: none;
+                padding: 0px 10px 0px 10px;
+                border-color: #123458;
+                color: #123458;
+                font-size: 100%;
+                font-family: "Amiri", serif;
+                font-weight: 400;
+                font-style: italic;
+            }
+
+            .sear:focus{
+                outline: #123458 2px solid;
+            }  
+
+            .button{
+                border-radius: 50%;
+                padding: 1%;
+                border: none;
+                background-color: #123458;
+            }
+        }
+
+        .cart{
+            background-color: #123458;
+            border-radius: 25px;
+            padding: 1%;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+        }
+
+        .a2{
+            text-decoration: none;
+
+        }
+        .name{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            color: #123458;
+            margin: 15px 0px;
+        }
+        h1{
+            margin: 0px;
+            font-family: "Leckerli One", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .products{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .product{
+            width: 15%;
+            margin: 0px 5px 2% 5px;
+            background: #D4C9BE;
+            border-radius: 8px;
+            padding-bottom: 15px;
+            height: 300px;
+            .border{
+                width: 100%;
+                background-color: #123458;
+                height: 65%;
+                border-radius: 8px 8px 0px 0px;
+                .a{
+                    margin: 0px;
+                    .img{
+                        height: 100%;
+                        width: 80%;
+                        margin: 0% 10% -1% 10%;
+                        object-fit: cover;
+
+                    }
+                }
+            }
+            .details{
+                padding: 0px 10px;
+                width: 88%;
+                display: flex;
+                flex-wrap: wrap;
+                height: 120px;
+                h2{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;     /* عدد السطور = 1 */
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    max-width: 100%;  /* أو أي نسبة من عرض البوكس */
+                    margin: 0px;
+                }
+                a{
+                    text-decoration: none;
+                    font-family: "Amiri", serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    color: #123458;
+                }
+                p{
+                    margin: 0;
+                }
+            }
+            .product-name{
+                width: 100%;
+            }
+            .product-description{
+                width: 100%;
+                p{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;     /* عدد السطور = 1 */
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    max-width: 100%;  /* أو أي نسبة من عرض البوكس */
+                    margin: 0px;    
+                    font-family: "Amiri", serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    color: #123458;
+                }
+            }
+            .product-price{
+                width: 100%;           
+                p{
+                    margin: 0px;
+                    font-size: 0.5cm;
+                    font-family: "Amiri", serif;
+                    font-family: "Amiri", serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;     /* عدد السطور = 1 */
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    max-width: 100%;  /* أو أي نسبة من عرض البوكس */
+                    font-family: "Amiri", serif;
+                    font-weight: 400;
+                    font-style: italic;
+                    color: #123458;
+                }     
+            }
+        }
+
+        
+        @media(min-width: 300px) and (max-width: 1000px){
+            .product{
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <form method="GET" action="{% url 'product_list' %}" class="search">
+            <div class="cart">
+                <a class="a2" href="{% url 'view_cart' %}">🛒
+                    <span style="
+                        position: absolute;
+                        top: 0px;
+                        right: 30px;
+                        background-color: red;
+                        color: white;
+                        border-radius: 50%;
+                        padding: 2px 6px;
+                        font-size: 12px;
+                    ">
+                        {{ cart_count }}
+                    </span>
+
+                </a>
+            </div>
+            <input class="sear" type="text" name="q" placeholder="احرص عند البحث ان تكتب اسم المنتج كامل" value="{{ request.GET.q }}">
+            <button type="submit" class="button">🔍</button>
+        </form>
+
+    
+    <div class="name">
+        <h1>MALOOKA STORE</h1>
+    </div>
+    <div class="products">
+        {% for product in products %}
+            <div class="product">
+                {% if product.image %}
+                <div class="border">
+                    <a href="{% url 'product_detail' product.pk %}" class="a">
+                        <img class="img" src="{{ product.image.url }}" alt="{{ product.name }}" >
+                    </a>
+                </div>
+                {% endif %}
+                <div class="details">
+                    <div class="product-name">
+                        <h2>
+                            <a href="{% url 'product_detail' product.pk %}">
+                                {{ product.name }}
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="product-description">
+                        <p class="p1">{{ product.description }}</p>
+                    </div>
+                    <div class="product-price">
+                        <p>السعر: {{ product.price }} جنيه</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
